@@ -1,0 +1,2 @@
+1;Hong Hai;Bac Giang
+2;Foxcom;Bac Giang
