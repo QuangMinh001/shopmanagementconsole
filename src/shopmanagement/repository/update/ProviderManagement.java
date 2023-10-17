@@ -11,8 +11,6 @@ import shopmanagement.modul.Provider;
 
 public class ProviderManagement implements EFilePath {
 	
-	private static ProviderIO saveObj = new ProviderIO();
-	
 	private static ArrayList<Provider> list = ProviderIO.loadData();
 
 	private static int setAutoId(){
@@ -87,7 +85,7 @@ public class ProviderManagement implements EFilePath {
 		for (Provider x : sortList) {
 			x.display();
 		}
-		saveObj.saveData(list, providerFilePath);
+		ProviderIO.saveData(list);
 	}
 
 	private static void add() {
@@ -106,7 +104,7 @@ public class ProviderManagement implements EFilePath {
 		}
 		list.add(new Provider(setAutoId(), name, address));
 		System.out.println("Them nha cung cap thanh cong...!");
-		saveObj.saveData(list, providerFilePath);
+		ProviderIO.saveData(list);
 	}
 
 	private static void update() {
@@ -119,7 +117,7 @@ public class ProviderManagement implements EFilePath {
 			return;
 		}
 		list.get(index).update();
-		saveObj.saveData(list, providerFilePath);
+		ProviderIO.saveData(list);
 	}
 
 	private static void remove() {
@@ -133,7 +131,7 @@ public class ProviderManagement implements EFilePath {
 		}
 		list.remove(index);
 		System.out.println("Xoa nha cung cap thanh cong...!");
-		saveObj.saveData(list, providerFilePath);
+		ProviderIO.saveData(list);
 	}
 
 	// Tim nha cung cap theo id

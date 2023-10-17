@@ -53,7 +53,8 @@ public class SearchManagement {
 		int stt = 1;
 		System.out.printf("%3s %4s %-30s %-30s%n", "STT", "ID", "Ten chung loai", "Mo ta");
 		for(int i=0; i<TypeManagement.getList().size(); i++) {
-			if(TypeManagement.getList().get(i).getName().contains(type)) {
+			if(TypeManagement.getList().get(i).getName().toLowerCase()
+					.contains(type.toLowerCase())) {
 				System.out.printf("%3d ", stt++);
 				TypeManagement.getList().get(i).display();
 				cnt++;

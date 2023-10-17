@@ -9,7 +9,6 @@ import shopmanagement.modul.Product;
 
 public class ProductManagement implements EFilePath{
 	
-	static ProductIO saveObj = new ProductIO();
 	private static ArrayList<Product> list = ProductIO.loadData();
 	
 	private static int setAutoId(){
@@ -72,7 +71,7 @@ public class ProductManagement implements EFilePath{
 		for (Product x : list) {
 			x.display();
 		}
-		saveObj.saveData(list, productFilePath);
+		ProductIO.saveData(list);
 	}
 
 	private static void add() {
@@ -109,7 +108,7 @@ public class ProductManagement implements EFilePath{
 
 		list.add(new Product(setAutoId(), providerID, typeID, name, amount, price));
 		System.out.println("Them san pham thanh cong");
-		saveObj.saveData(list, productFilePath);
+		ProductIO.saveData(list);
 	}
 
 	private static void update() {
@@ -122,7 +121,7 @@ public class ProductManagement implements EFilePath{
 			return;
 		}
 		list.get(index).update();
-		saveObj.saveData(list, productFilePath);
+		ProductIO.saveData(list);
 	}
 
 	private static void remove() {
@@ -136,7 +135,7 @@ public class ProductManagement implements EFilePath{
 		}
 		list.remove(index);
 		System.out.println("Xoa san pham thanh cong..!");
-		saveObj.saveData(list, productFilePath);
+		ProductIO.saveData(list);
 	}
 
 	public static Product getProductById(int id) {

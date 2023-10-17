@@ -10,7 +10,6 @@ import shopmanagement.dao.TypeIO;
 import shopmanagement.modul.Type;
 
 public class TypeManagement implements EFilePath {
-	private static TypeIO saveObj = new TypeIO();
 	
 	private static ArrayList<Type> list = TypeIO.loadData();
 	
@@ -86,7 +85,7 @@ public class TypeManagement implements EFilePath {
 		for (Type x : sortList) {
 			x.display();
 		}
-		saveObj.saveData(list, typeFilePath);
+		TypeIO.saveData(list);
 	}
 
 	private static void add() {
@@ -105,7 +104,7 @@ public class TypeManagement implements EFilePath {
 		}
 		list.add(new Type(setAutoId(), name, description));
 		System.out.println("Them chung loai thnah cong..!");
-		saveObj.saveData(list, typeFilePath);
+		TypeIO.saveData(list);
 	}
 
 	private static void update() {
@@ -118,7 +117,7 @@ public class TypeManagement implements EFilePath {
 			return;
 		}
 		list.get(index).update();
-		saveObj.saveData(list, typeFilePath);
+		TypeIO.saveData(list);
 	}
 
 	private static void remove() {
@@ -132,7 +131,7 @@ public class TypeManagement implements EFilePath {
 		}
 		list.remove(index);
 		System.out.println("Xoa chung loai thanh cong");
-		saveObj.saveData(list, typeFilePath);
+		TypeIO.saveData(list);
 	}
 
 	// Tim kiem chung loai theo id
